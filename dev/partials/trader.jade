@@ -30,6 +30,9 @@ form.subform-container-text
 
     .clearfix
 
+    h3.header portfolio
+    hr
+
     span cash : {{profile.amount | currency}}
     span.pull-right Net Value: {{netValue() | currency}}
     table.table.table-striped
@@ -45,6 +48,6 @@ form.subform-container-text
             td {{stocklist[key].ask | currency}}
             td {{stocklist[key].bid | currency}}
             td {{val}}
-            td {{val * stocklist[key].bid | currency}}
+            td {{val * ( val > 0 ? stocklist[key].bid : stocklist[key].ask) | currency}}
             td
                 span.glyphicon.glyphicon-new-window(ng-click="open(key)")
