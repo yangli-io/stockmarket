@@ -21,5 +21,8 @@
     "gulp-angular-templatecache": "^1.5.0",
     "gulp-livereload": "^3.7.0",
     "body-parser": "^1.11.0"
-  }
+  },
+	"engines" : {
+		"node": "0.10.x"
+	}
 }
