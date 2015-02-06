@@ -1,0 +1,17 @@
+//-- Created by yangli on 5/02/15.
+
+doctype html
+html(ng-app="stocks")
+    head
+        title="Qwilr Market!"
+        link(rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css")
+        //link(rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.min.css")
+        link(rel="stylesheet" href="css/style.css")
+        script(type="text/javascript" src="js/libraries.js")
+        script(type="text/javascript" src="js/app.js")
+    body
+        .container
+            div(ui-view)
+
+
+        script(type="text/javascript" src="js/templates.js")

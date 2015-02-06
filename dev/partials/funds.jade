@@ -1,0 +1,18 @@
+//--Created by yangli on 7/02/15.
+
+.container.smaller
+    .header
+        h3.text-muted Add or Remove funds
+
+    form.jumbotron(name="addRemove" ng-submit="banker()")
+        .form-group.row
+            .col-sm-12
+                input.form-control(ng-model="amount" name="amount" placeholder="amount")
+        .btn-group(role='group')
+            label.btn.btn-success.btn-md(ng-model="choice" btn-radio="'Add'" uncheckable) Add
+            label.btn.btn-success.btn-md(ng-model="choice" btn-radio="'Withdraw'" uncheckable) Withdraw
+        div(ng-if="choice && amount")
+            hr
+            p
+                button.btn.btn-primary.btn-mg(type="submit") {{choice}} {{amount | currency}}
+

@@ -1,0 +1,34 @@
+//-- Created by yangli on 5/02/15.
+
+.modal-header
+    h3.modal-title {{stock.buySell + ' ' + data.Name}}
+
+    .modal-body
+
+        .form-group.col-sm-12
+            label.col-sm-4.control-label.text-right Number of Stocks
+            .col-sm-4
+                input.form-control(type="number" ng-model="stock.amount" name="amount")
+            .btn-group(role='group').col-sm-4
+                label.btn.btn-success.btn-md(ng-model="stock.buySell" btn-radio="'Buy'" uncheckable) Buy
+                label.btn.btn-success.btn-md(ng-model="stock.buySell" btn-radio="'Sell'" uncheckable) Sell
+
+        .clearfix
+        table.table(ng-if="stock.buySell && stock.amount")
+            tr
+                th stock
+                th amount
+                th {{(stock.buySell == 'Buy') ? 'Ask' : 'Bid'}}
+                th total
+            tr
+                td {{data.Symbol}}
+                td {{stock.amount}}
+                td {{showprice = (stock.buySell == 'Buy') ? data.AskRealtime : data.BidRealtime; showprice}}
+                td {{stock.amount * showprice | currency}}
+    .clearfix
+    .modal-footer
+        button.btn.btn-primary(ng-if="stock.buySell" ng-click='ok()') {{stock.buySell}}
+
+        button.btn.btn-warning(ng-click='cancel()') Cancel
+
+

@@ -1,0 +1,50 @@
+h1.text-center Welcome {{profile.name}}
+
+form.subform-container-text
+    .form-group.col-sm-12
+        label.col-sm-4.control-label.text-right Find stock
+        .col-sm-4
+            input.form-control(type="text" ng-model="stock.name" name="name" ng-change="getQuote()")
+        .col-sm-4.text-left.add-remove(ui-sref="funds")
+            span.glyphicon.glyphicon-plus
+            |   Add/remove funds
+
+    .clearfix
+
+    .ticker.row.col-sm-offset-4.col-sm-3(ng-show="stock.results.AskRealtime")
+        .row
+            .col-xs-5.text-right Name:
+            .col-xs-7.text-Left {{stock.results.Name}}
+        .row
+            .col-xs-5.text-right Symbol:
+            .col-xs-7.text-Left {{stock.results.Symbol}}
+        .row
+            .col-xs-5.text-right Ask Price:
+            .col-xs-7.text-Left {{stock.results.AskRealtime | currency}}
+        .row
+            .col-xs-5.text-right Bid Price:
+            .col-xs-7.text-Left {{stock.results.BidRealtime | currency}}
+        .row.col-xs-12.buy-stock.text-center(ng-click="open()")
+            span.col-sm-offset-5.glyphicon.glyphicon-plus
+            |   buy stock
+
+    .clearfix
+
+    span cash : {{profile.amount | currency}}
+    span.pull-right Net Value: {{netValue() | currency}}
+    table.table.table-striped
+        tr
+            th Stocks
+            th Ask
+            th Bid
+            th Num of Shares
+            th value
+            th action
+        tr(ng-repeat="(key, val) in profile.stocks" ng-if="val")
+            td {{key}}
+            td {{stocklist[key].ask | currency}}
+            td {{stocklist[key].bid | currency}}
+            td {{val}}
+            td {{val * stocklist[key].bid | currency}}
+            td
+                span.glyphicon.glyphicon-new-window(ng-click="open(key)")

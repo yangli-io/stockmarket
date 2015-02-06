@@ -1,0 +1,1 @@
+{"qwe@qwe.com":{"name":"yang","email":"qwe@qwe.com","password":"qwerty","amount":220,"stocks":{"BHP":200}}}
