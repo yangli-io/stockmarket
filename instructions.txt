@@ -1,0 +1,12 @@
+
+Dependencies: Nodejs, bower, gulp
+
+run the below shell scripts
+1. npm install
+2. bower install
+3. gulp
+
+open browser to localhost:3000
+if this doesn't work it may be because your port is taken, look at the shell console to see which port has been designated
+if it still doesnt work, try to rerun gulp again
+if this time it doesnt work then well... not sure... contact me?
