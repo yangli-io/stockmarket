@@ -6,7 +6,6 @@ var gulp    = require('gulp'),
     del     = require('del'),
     concat  = require('gulp-concat'),
     filter  = require('gulp-filter'),
-    uglify  = require('gulp-uglify'),
     server  = require('gulp-develop-server'),
     template= require('gulp-angular-templatecache'),
     reload  = require('gulp-livereload');
